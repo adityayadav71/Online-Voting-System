@@ -99,7 +99,7 @@ $_SESSION['status-code'] = "warning";
       <div class = "polaroid" id="votes">
       <?php
       if(isset($_SESSION['user'])){
-        echo '<img src="/'.$rows['Image'].'"height="119px" width="130px"/>';
+        echo '<img src="../'.$rows['Image'].'"height="119px" width="130px"/>';
       }?>
       <?php
       if($_SESSION['Voted'] == "No"){
@@ -111,18 +111,18 @@ $_SESSION['status-code'] = "warning";
       }
       if(isset($_POST[$rows['ID']])){
         ?>
-        <script>
-          Swal.fire({
-                  <?php
-                  $_SESSION['status']="VOTED";
-                  $_SESSION['message'] ="Your Vote has successfully been submitted!";
-                  $_SESSION['status-code'] ="success";
-                  ?>
-              })
-              setTimeout(function(){
-                      window.location.href = 'index.php';
-                  }, 1000);
-        </script>
+          <script>
+            Swal.fire({
+                <?php
+                $_SESSION['status']="VOTED";
+                $_SESSION['message'] ="Your Vote has successfully been submitted!";
+                $_SESSION['status-code'] ="success";
+                ?>
+            })
+            setTimeout(function(){
+              window.location.href = 'index.php';
+            }, 1000);
+          </script>
         }
         <?php
             $sql = $mysqli->query("UPDATE candidatedetails SET Votes = Votes + 1 WHERE ID = '".$rows['ID']."'");

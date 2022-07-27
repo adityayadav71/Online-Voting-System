@@ -61,7 +61,7 @@ $result = $mysqli->query("$sql");
     </li>
     <li class="profile">
         <div class="profile-details">
-           <img src="<?php if(isset($_SESSION['adminlogin'])){echo "/adminimage.png";}?>" alt="Img">
+           <img src="<?php if(isset($_SESSION['adminlogin'])){echo "../adminimage.png";}?>" alt="Img">
           <div class="name_job">
             <div class="name"><?php if(isset($_SESSION['adminlogin'])){echo "Admin";}?></div>
             <div class="job"><?php if(isset($_SESSION['adminlogin'])){echo "123";}?></div>
@@ -83,7 +83,7 @@ $result = $mysqli->query("$sql");
         confirmButtonText: 'Log out!'
       }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href="../home.php";
+            window.location.href="../index.php";
         }
       })
         }
@@ -122,7 +122,7 @@ $result = $mysqli->query("$sql");
                 <td><?php echo $rows['Party'];?></td>
                 <td><?php echo $rows['Slogan'];?></td>
                 <td><?php echo $rows['Votes'];?></td>
-                <td><?php echo '<img src="/'.$rows['Image'].'" alt="Image" style="width: 100px; height: 100px;">';?></td>
+                <td><?php echo '<img src="../'.$rows['Image'].'" alt="Image" style="width: 100px; height: 100px;">';?></td>
             </tr>
             <?php
                 }

@@ -55,7 +55,7 @@ $mysqli->close();
       <div class = "polaroid">
       <?php
       // Outputting HTML and the data from the DB. Change to $row['the name of the field you want']
-      echo '<img src="/'.$rows['Image'].'"height="119px" width="119px"/>'.$rows['Votes'].'';
+      echo '<img src="../'.$rows['Image'].'"height="119px" width="119px"/>'.$rows['Votes'].'';
       ?></div></div><?php
   }
 ?>

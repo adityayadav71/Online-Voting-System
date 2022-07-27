@@ -77,7 +77,7 @@ $sql = $mysqli->query("SELECT Phase FROM phase WHERE NO = 1");
      ?>
     <li class="profile">
         <div class="profile-details">
-           <img src="<?php echo '/'.$_SESSION['image']?>" width="45px" height="45px" alt="Img">
+           <img src="<?php echo '../'.$_SESSION['image']?>" width="45px" height="45px" alt="Img">
           <div class="name_job">
             <div class="name"><?php echo $_SESSION['user']?></div>
             <div class="job"><?php echo $_SESSION['VID']?></div>
@@ -99,7 +99,7 @@ $sql = $mysqli->query("SELECT Phase FROM phase WHERE NO = 1");
         confirmButtonText: 'Log out!'
       }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href="../home.php";
+            window.location.href="../index.php";
         }
       })
         }

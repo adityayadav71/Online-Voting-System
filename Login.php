@@ -1,15 +1,15 @@
 <?php
 session_start();
 error_reporting(0);
- $user = 'root';
- $password = ''; 
- $database = 'voterportal'; 
- $servername='localhost:3306';
- $mysqli = mysqli_connect($servername, $user, $password, $database);
- if ($mysqli->connect_error) {die('Connect Error (' . $mysqli->connect_errno . ') '. $mysqli->connect_error);} 
- if(isset($_POST['submit'])){
-    $id = $_POST["id"];
-    $p = $_POST["pass"];
+$user = 'root';
+$password = ''; 
+$database = 'voterportal'; 
+$servername='localhost:3306';
+$mysqli = mysqli_connect($servername, $user, $password, $database);
+if ($mysqli->connect_error) {die('Connect Error (' . $mysqli->connect_errno . ') '. $mysqli->connect_error);} 
+if(isset($_POST['submit'])){
+   $id = $_POST["id"];
+   $p = $_POST["pass"];
 $sql = $mysqli->query("SELECT * from voterdetails where VID='".$id."'");
 if($sql->num_rows == 0){
     $_SESSION['status'] = "ERROR!";
@@ -197,15 +197,15 @@ if($sql->num_rows == 0){
 </head>
 <body>
 <header style="height: 58px; display:inline-flex; width:100%">
-         <a class="logo" href="/"><img src="\image1.png"style="height:36px; width:197px" alt="logo"></a>
+         <a class="logo" href="/Online-Voting-System-main"><img src="image1.png"style="height:36px; width:197px" alt="logo"></a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="AdminLogin.php">Admin</a></li>
-                    <li><a href="candidates.php">Candidates</a></li>
+                    <li><a href="./AdminLogin.php">Admin</a></li>
+                    <li><a href="./candidates.php">Candidates</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </nav>
-            <a class="cta" href="/Register.php">Register</a>
+            <a class="cta" href="./Register.php">Register</a>
             <p class="menu cta">Menu</p>
         </header>
 <div class="center">
@@ -224,7 +224,7 @@ if($sql->num_rows == 0){
                     <div class="inner"></div>
                     <input class= "button" type="submit" name="submit">
                 </div>
-                <div class="signup-link"> <a href="/Register.php">Click here for registration</a></div>
+                <div class="signup-link"> <a href="./Register.php">Click here for registration</a></div>
             </form>
             <?php
  if(isset($_SESSION['status'])){

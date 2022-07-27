@@ -20,15 +20,15 @@ $result = $mysqli->query($sql);
    </head>
 <body>
 <header style="position:relative;">
-         <a class="logo" href="/"><img src="\image1.png"style="height:36px; width:197px" alt="logo"></a>
+         <a class="logo" href="/Online-Voting-System-main"><img src="image1.png"style="height:36px; width:197px" alt="logo"></a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="/AdminLogin.php">Admin</a></li>
-                    <li><a href="/candidates.php">Candidates</a></li>
+                    <li><a href="./AdminLogin.php">Admin</a></li>
+                    <li><a href="./candidates.php">Candidates</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </nav>
-            <a class="cta" href="Login.php">LOGIN</a>
+            <a class="cta" href="./Login.php">LOGIN</a>
             <p class="menu cta">Menu</p>
         </header>
         <div class="overlay">
@@ -68,7 +68,7 @@ $result = $mysqli->query($sql);
                 <td><?php echo $rows['Age'];?></td>
                 <td><?php echo $rows['Party'];?></td>
                 <td><?php echo $rows['Slogan'];?></td>
-                <td><?php echo '<img src="/'.$rows['Image'].'" alt="Image" style="width: 100px; height: 100px;">';?></td>
+                <td><?php echo '<img src="'.$rows['Image'].'" alt="Image" style="width: 100px; height: 100px;">';?></td>
             </tr>
             <?php
                 }

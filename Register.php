@@ -20,8 +20,8 @@ $filename = $_FILES['image']['name'];
 $tmpname = $_FILES['image']['tmp_name'];
 $folder = "VoterImages/".$filename;
 move_uploaded_file($tmpname,$folder);
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-$conpass = password_hash($_POST['conpass'],PASSWORD_DEFAULT);
+$password = $_POST['password'];
+$conpass = $_POST['conpass'];
 if(isset($_POST['submit'])){
   if(!empty($votername) || !empty($Email) || !empty($Aadhar) || !empty($DOB) ||!empty($number) ||!empty($pin)){
     
@@ -32,23 +32,21 @@ if(isset($_POST['submit'])){
             $sql = mysqli_query($mysqli,"INSERT INTO voterdetails(Name,Image,Email,Aadhar,Contact,DOB,Pincode,Age,pwd)  values('$votername', '$folder', '$Email', '$Aadhar', '$number', '$DOB', '$pin', '$age','$password')");
             $result = mysqli_query($mysqli,"SELECT Name,Email,VID,Age FROM voterdetails WHERE Email = '".$Email."'");
               if ($sql === TRUE) {
-                    while($row = mysqli_fetch_array($result))
-                       {
-                           $to = $row['Email'];  
-                           $subject = 'Your Voter ID for Lok Sabha Elections 2021';
-                           $message = 'Name: '.$row['Name']."\r\n".'Age: '.$row['Age']."\r\n".'Voter ID: '.$row['VID'];
-                           $headers = "From: voterportal838@gmail.com";
-                       }
-                    if(mail($to, $subject, $message, $headers)){
+                    while($row = mysqli_fetch_array($result)){
                         $_SESSION['status'] = "ADDED";
-                        $_SESSION['message'] = "Registration sucessful.Voter ID successfully sent to $to...";
+                        $_SESSION['message'] = "Registration sucessful.Your Voter ID is".$row['VID'];
                         $_SESSION['status-code'] = "success";
-                    }else {
-                      $_SESSION['status'] = "ERROR";
-                      $_SESSION['message'] = "Registration unsucessful.Please try again";
-                      $sql = $mysqli->query("DELETE FROM voterdetails WHERE Email = '".$Email."'");
-                      $_SESSION['status-code'] = "error";
                     }
+                    // if(mail($to, $subject, $message, $headers)){
+                    //     $_SESSION['status'] = "ADDED";
+                    //     $_SESSION['message'] = "Registration sucessful.Voter ID successfully sent to $to...";
+                    //     $_SESSION['status-code'] = "success";
+                    // }else {
+                    //   $_SESSION['status'] = "ERROR";
+                    //   $_SESSION['message'] = "Registration unsuccessful.Please try again";
+                    //   $sql = $mysqli->query("DELETE FROM voterdetails WHERE Email = '".$Email."'");
+                    //   $_SESSION['status-code'] = "error";
+                    // }
               }else{ 
                       $_SESSION['status'] = "ERROR!";
                       $_SESSION['message'] = "Record insertion unsuccesful. Error: ". $sql . "<br>" . $mysqli->error;
@@ -102,16 +100,16 @@ $mysqli->close();
     </script>
    </head>
 <body>
-<header style="position: relative;height: 59px;top: -215px;left: -10px;right: 0px;display: inline-flex;width: 101%;z-index: 10;margin: 0;">
-         <a class="logo" href="/"><img src="\image1.png"style="height:36px; width:197px" alt="logo"></a>
+<header style="position: relative;height: 59px;top: -200px;left: -10px;right: 0px;display: inline-flex;width: 101%;z-index: 10;margin: 0;">
+         <a class="logo" href="/Online-Voting-System-main"><img src="image1.png"style="height:36px; width:197px" alt="logo"></a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="/AdminLogin.php">Admin</a></li>
-                    <li><a href="candidates.php">Candidates</a></li>
+                    <li><a href="./AdminLogin.php">Admin</a></li>
+                    <li><a href="./candidates.php">Candidates</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </nav>
-            <a class="cta" href="Login.php">Login</a>
+            <a class="cta" href="./Login.php">Login</a>
             <p class="menu cta">Menu</p>
         </header>
         <div class="overlay">

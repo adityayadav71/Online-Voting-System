@@ -25,8 +25,8 @@ $mysqli->close();
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/test.css">
-    <link rel="stylesheet" href="/table.css">
+    <link rel="stylesheet" href="../AdminPage/test.css">
+    <link rel="stylesheet" href="../AdminPage/table.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://kit.fontawesome.com/8ba4e36762.js" crossorigin="anonymous"></script>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +63,7 @@ $mysqli->close();
                 <td><?php echo $rows['Party'];?></td>
                 <td><?php echo $rows['Slogan'];?></td>
                 <td><?php echo $rows['Votes'];?></td>
-                <td><?php echo '<img src="/'.$rows['Image'].'" alt="Image" style="width: 100px; height: 100px;">';?></td>
+                <td><?php echo '<img src="../'.$rows['Image'].'" alt="Image" style="width: 100px; height: 100px;">';?></td>
             </tr>
             <?php
                 }
@@ -71,18 +71,18 @@ $mysqli->close();
               <tbody>
           </table>
           <?php
-                          if(isset($_SESSION['status'])){
-                            ?><script>
-                            Swal.fire({
-                                title: "<?php echo $_SESSION['status']?>",
-                                text: "<?php echo $_SESSION['message']?>",
-                                icon: "<?php echo $_SESSION['status-code']?>",
-                                button: "OK!",
-                              });
-                              </script>
-                              <?php
-                          }
-                          ?>
+            if(isset($_SESSION['status'])){
+              ?><script>
+              Swal.fire({
+                  title: "<?php echo $_SESSION['status']?>",
+                  text: "<?php echo $_SESSION['message']?>",
+                  icon: "<?php echo $_SESSION['status-code']?>",
+                  button: "OK!",
+                });
+                </script>
+                <?php
+            }
+          ?>
       </div>
   </section>
 </body>

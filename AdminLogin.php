@@ -185,11 +185,11 @@ $conn->close();
 </head>
 <body>
 <header style="position: relative;height: 59px;display: inline-flex;width: 101%;z-index: 10;margin: 0;">
-         <a class="logo" href="/"><img src="\image1.png"style="height:36px; width:197px" alt="logo"></a>
+         <a class="logo" href="/Online-Voting-System-main"><img src="image1.png"style="height:36px; width:197px" alt="logo"></a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="/AdminLogin.php">Admin</a></li>
-                    <li><a href="candidates.php">Candidates</a></li>
+                    <li><a href="./AdminLogin.php">Admin</a></li>
+                    <li><a href="./candidates.php">Candidates</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
             </nav>
@@ -220,7 +220,7 @@ $conn->close();
                     <div class="inner"></div>
                     <button type="submit" name="submit">Login</button>
                 </div>
-                <div class="signup-link"> <a href="login_register 3.php">Click here for registration</a></div>
+                <div class="signup-link"> <a href="./Register.php">Click here for registration</a></div>
             </form>
             <?php
                  if(isset($_SESSION['status'])){
