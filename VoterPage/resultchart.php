@@ -1,7 +1,7 @@
 <?php
 session_start();
+require './votersidebar.php';
 include '../db_connection.php';
-include './votersidebar.php';
 $sql1 = $mysqli->query("SELECT Phase from phase WHERE NO = 1;");
 while($rows= $sql1->fetch_assoc())
 {
