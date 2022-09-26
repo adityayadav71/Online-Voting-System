@@ -11,7 +11,6 @@ while($rows= $sql1->fetch_assoc())
    $_SESSION['status-code'] = "info";
   }
 }
-$mysqli->close(); 
 ?>
 <!DOCTYPE html>
 <html>
