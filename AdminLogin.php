@@ -14,7 +14,6 @@
                 $_SESSION['status-code'] = "error";
             }
 }
-$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
