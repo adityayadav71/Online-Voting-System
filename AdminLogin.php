@@ -1,11 +1,6 @@
 <?php
  session_start();
- $user = 'root';
- $password = ''; 
- $database = 'voterportal'; 
- $servername='localhost:3306';
- $conn = mysqli_connect($servername, $user, $password, $database);
- if ($conn->connect_error) {die('Connect Error (' . $mysqli->connect_errno . ') '. $mysqli->connect_error);} 
+ include 'db_connection.php';
  if(isset($_POST['submit'])){
     $loginid = $_POST['loginid'];
     $password = $_POST['password'];
@@ -189,8 +184,7 @@ $conn->close();
 
 <body>
   <header style="position: relative;height: 59px;display: inline-flex;width: 101%;z-index: 10;margin: 0;">
-    <a class="logo" href="/"><img src="images/image1.png" style="height:36px; width:197px"
-        alt="logo"></a>
+    <a class="logo" href="/"><img src="images/image1.png" style="height:36px; width:197px" alt="logo"></a>
     <nav>
       <ul class="nav__links">
         <li><a href="./AdminLogin.php">Admin</a></li>

@@ -90,7 +90,7 @@ include 'db_connection.php';
       <ul class="nav__links">
         <li><a href="./AdminLogin.php">Admin</a></li>
         <li><a href="./candidates.php">Candidates</a></li>
-        <li><a href="">About</a></li>
+        <li><a href="#">About</a></li>
       </ul>
     </nav>
     <a class="cta" href="Contact.php">CONTACT</a>
