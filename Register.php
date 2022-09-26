@@ -77,9 +77,9 @@ $mysqli->close();
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="AdminPage/sidebar.css">
-  <link rel="stylesheet" href="AdminPage/table.css">
-  <link rel="stylesheet" href="AdminPage/form.css">
+  <link rel="stylesheet" href="./css/sidebar.css">
+  <link rel="stylesheet" href="./css/table.css">
+  <link rel="stylesheet" href="./css/form.css">
   <script src="./css/table.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./js/sweetalert.min.js"></script>
