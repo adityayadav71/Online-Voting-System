@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'votersidebar.php';
-include 'db_connection.php';
+include '../db_connection.php';
 $sql = "SELECT * FROM candidatedetails ORDER BY ID ASC ";
 $result = $mysqli->query($sql);
 $sql1 = $mysqli->query("SELECT Phase from phase WHERE NO = 1;");
