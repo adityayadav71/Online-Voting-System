@@ -5,5 +5,6 @@ To run locally:
    Username: admin123
    Password: 123
 ## Deployment
-This project has been deployed on heroku and uses freesqldatabase to store the sql database online
+This project has been deployed on heroku and uses freesqldatabase to store the sql database online.
+
 [Heroku Link](https://voter-portal-ovs.herokuapp.com/)
