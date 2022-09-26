@@ -11,6 +11,7 @@ while($rows= $sql1->fetch_assoc())
    $_SESSION['status-code'] = "info";
   }
 }
+$mysqli->close(); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -93,8 +94,8 @@ while($rows= $sql1->fetch_assoc())
   <?php
                             }
                           ?>
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/Chart.min.js"></script>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/Chart.min.js"></script>
 </body>
 
 </html>
