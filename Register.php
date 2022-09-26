@@ -18,7 +18,7 @@ $number = $_POST['number'];
 $pin = $_POST['pin'];
 $filename = $_FILES['image']['name'];
 $tmpname = $_FILES['image']['tmp_name'];
-$folder = "VoterImages/".$filename;
+$folder = "images/VoterImages/".$filename;
 move_uploaded_file($tmpname,$folder);
 $password = $_POST['password'];
 $conpass = $_POST['conpass'];
@@ -81,15 +81,15 @@ $mysqli->close();
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="AdminPage/test.css">
+    <link rel="stylesheet" href="AdminPage/sidebar.css">
     <link rel="stylesheet" href="AdminPage/table.css">
     <link rel="stylesheet" href="AdminPage/form.css">
-    <script src="table.js"></script>
+    <script src="./css/table.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="AdminPage/sweetalert.min.js"></script>
-    <script type="text/javascript" src="mobile.js"></script>
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="icon" href="image3.ico" type="image/x-icon">
+    <script src="./js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="./js/mobile.js"></script>
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="icon" href="images/image3.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Register to Voter Portal</title>
@@ -101,7 +101,7 @@ $mysqli->close();
    </head>
 <body>
 <header style="position: relative;height: 59px;top: -200px;left: -10px;right: 0px;display: inline-flex;width: 101%;z-index: 10;margin: 0;">
-         <a class="logo" href="/Online-Voting-System-main"><img src="image1.png"style="height:36px; width:197px" alt="logo"></a>
+         <a class="logo" href="/Online-Voting-System-main"><img src="images/image1.png"style="height:36px; width:197px" alt="logo"></a>
             <nav>
                 <ul class="nav__links">
                     <li><a href="./AdminLogin.php">Admin</a></li>
