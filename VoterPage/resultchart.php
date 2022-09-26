@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'votersidebar.php';
+include 'db_connection.php';
 $sql1 = $mysqli->query("SELECT Phase from phase WHERE NO = 1;");
 while($rows= $sql1->fetch_assoc())
 {
@@ -26,8 +27,6 @@ while($rows= $sql1->fetch_assoc())
     height: auto;
   }
   </style>
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/Chart.min.js"></script>
 </head>
 
 <body>
@@ -94,6 +93,8 @@ while($rows= $sql1->fetch_assoc())
   <?php
                             }
                           ?>
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/Chart.min.js"></script>
 </body>
 
 </html>
