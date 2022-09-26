@@ -1,7 +1,7 @@
 <?php
 session_start();
-require 'votersidebar.php';
 include 'db_connection.php';
+require 'votersidebar.php';
 $sql1 = $mysqli->query("SELECT Phase from phase WHERE NO = 1;");
 while($rows= $sql1->fetch_assoc())
 {
@@ -18,9 +18,9 @@ $mysqli->close();
 
 <head>
   <title>Statistics</title>
-  <style type="text/css">
-  BODY {
-    width: 550PX;
+  <style>
+  body {
+    width: 550px;
   }
 
   #chart-container {
