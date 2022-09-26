@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-include 'db_connection.php';
+include '../db_connection.php';
 $sqlQuery = "SELECT Party, SUM(Votes) as TotalVotes FROM candidatedetails GROUP BY Party;";
 $exec =  $mysqli->query($sqlQuery);
 $result = $exec->fetch_assoc();
