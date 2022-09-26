@@ -1,7 +1,6 @@
 <?php
 include '../db_connection.php';
 $sql = $mysqli->query("SELECT Phase FROM phase WHERE NO = 1");
-$mysqli->close();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
