@@ -189,7 +189,7 @@ $conn->close();
 
 <body>
   <header style="position: relative;height: 59px;display: inline-flex;width: 101%;z-index: 10;margin: 0;">
-    <a class="logo" href="/Online-Voting-System-main"><img src="images/image1.png" style="height:36px; width:197px"
+    <a class="logo" href="/"><img src="images/image1.png" style="height:36px; width:197px"
         alt="logo"></a>
     <nav>
       <ul class="nav__links">

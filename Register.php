@@ -1,12 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-$user = 'root';
-$password = ''; 
-$database = 'voterportal'; 
-$servername='localhost:3306';
-$mysqli = new mysqli($servername, $user, $password, $database);
-if ($mysqli->connect_error) {die('Connect Error (' . $mysqli->connect_errno . ') '. $mysqli->connect_error);} 
+include 'db_connection.php';
 $votername = $_POST['votername'];
 $Email = $_POST['Email'];
 $Aadhar = $_POST['Aadhar'];
@@ -79,137 +74,142 @@ $mysqli->close();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="AdminPage/sidebar.css">
-    <link rel="stylesheet" href="AdminPage/table.css">
-    <link rel="stylesheet" href="AdminPage/form.css">
-    <script src="./css/table.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./js/sweetalert.min.js"></script>
-    <script type="text/javascript" src="./js/mobile.js"></script>
-    <link rel="stylesheet" href="./css/navbar.css">
-    <link rel="icon" href="images/image3.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Register to Voter Portal</title>
-     <script>
-        if(window.history.replaceState){
-            window.history.replaceState(null,null,window.location.href);
-        }
-    </script>
-   </head>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="AdminPage/sidebar.css">
+  <link rel="stylesheet" href="AdminPage/table.css">
+  <link rel="stylesheet" href="AdminPage/form.css">
+  <script src="./css/table.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./js/sweetalert.min.js"></script>
+  <script type="text/javascript" src="./js/mobile.js"></script>
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="icon" href="images/image3.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register to Voter Portal</title>
+  <script>
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
+  </script>
+</head>
+
 <body>
-<header style="position: relative;height: 59px;top: -200px;left: -10px;right: 0px;display: inline-flex;width: 101%;z-index: 10;margin: 0;">
-         <a class="logo" href="/Online-Voting-System-main"><img src="images/image1.png"style="height:36px; width:197px" alt="logo"></a>
-            <nav>
-                <ul class="nav__links">
-                    <li><a href="./AdminLogin.php">Admin</a></li>
-                    <li><a href="./candidates.php">Candidates</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </nav>
-            <a class="cta" href="./Login.php">Login</a>
-            <p class="menu cta">Menu</p>
-        </header>
-        <div class="overlay">
-            <a class="close">&times;</a>
-            <div class="overlay__content">
-                <a href="#">Services</a>
-                <a href="#">Projects</a>
-                <a href="#">About</a>
-            </div>
-</div>
-<script type="text/javascript" src="mobile.js"></script>
-<section class="home-section" style="left: 0px;width:100%">
-    <div class="heading" style="top: 96px;left: 470px;margin: 0;padding: 5px 50px 5px 50px;">Register to VoterPortal</div><br>
-           <div class="content" style="width:60%;min-height: 59vh;left: 290px; top: 88px;margin: 35px 9px 19px -23px;">
-              <form action="" method="POST" enctype="multipart/form-data">
-              <div class="user-details">
-                  <div class="input-box">
-                    <span class="details">Full Name</span>
-                    <input type="text" maxlength="30" name="votername" placeholder="Enter name" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">Email</span>
-                    <input type="text" maxlength="30" name="Email" placeholder="Enter email" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">Aadhar Number</span>
-                    <input type="text" maxlength="12" name="Aadhar" placeholder="Enter Aadhar Number" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">Date of Birth</span>
-                    <input type="date" name = "DOB"placeholder="Enter D.O.B" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">Create a Password</span>
-                    <input type="password" name="password" placeholder="Enter a password" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">Confirm Password</span>
-                    <input type="password" name="conpass" placeholder="Confirm password" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">Contact No.</span>
-                    <input type="text" name = "number" maxlength="10" placeholder="Enter number" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">Area Pincode</span>
-                    <input type="text" name = "pin" maxlength="6" placeholder="Enter area pincode" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">IMAGE</span>
-                    <label for="image">Select image:</label>
-                    <input type="file" id="image" name="image">
-                  </div>
-                </div>
-                  <?php
+  <header
+    style="position: relative;height: 59px;top: -200px;left: -10px;right: 0px;display: inline-flex;width: 101%;z-index: 10;margin: 0;">
+    <a class="logo" href="/"><img src="images/image1.png" style="height:36px; width:197px" alt="logo"></a>
+    <nav>
+      <ul class="nav__links">
+        <li><a href="./AdminLogin.php">Admin</a></li>
+        <li><a href="./candidates.php">Candidates</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="./Login.php">Login</a>
+    <p class="menu cta">Menu</p>
+  </header>
+  <div class="overlay">
+    <a class="close">&times;</a>
+    <div class="overlay__content">
+      <a href="#">Services</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+    </div>
+  </div>
+  <script type="text/javascript" src="mobile.js"></script>
+  <section class="home-section" style="left: 0px;width:100%">
+    <div class="heading" style="top: 96px;left: 470px;margin: 0;padding: 5px 50px 5px 50px;">Register to VoterPortal
+    </div><br>
+    <div class="content" style="width:60%;min-height: 59vh;left: 290px; top: 88px;margin: 35px 9px 19px -23px;">
+      <form action="" method="POST" enctype="multipart/form-data">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" maxlength="30" name="votername" placeholder="Enter name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" maxlength="30" name="Email" placeholder="Enter email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Aadhar Number</span>
+            <input type="text" maxlength="12" name="Aadhar" placeholder="Enter Aadhar Number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Date of Birth</span>
+            <input type="date" name="DOB" placeholder="Enter D.O.B" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Create a Password</span>
+            <input type="password" name="password" placeholder="Enter a password" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" name="conpass" placeholder="Confirm password" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Contact No.</span>
+            <input type="text" name="number" maxlength="10" placeholder="Enter number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Area Pincode</span>
+            <input type="text" name="pin" maxlength="6" placeholder="Enter area pincode" required>
+          </div>
+          <div class="input-box">
+            <span class="details">IMAGE</span>
+            <label for="image">Select image:</label>
+            <input type="file" id="image" name="image">
+          </div>
+        </div>
+        <?php
                           if(isset($_SESSION['status'])){
                             ?><script>
-                            Swal.fire({
-                                title: "<?php echo $_SESSION['status']?>",
-                                text: "<?php echo $_SESSION['message']?>",
-                                icon: "<?php echo $_SESSION['status-code']?>",
-                                button: "OK!",
-                              });
-                              </script>
-                              <?php
+        Swal.fire({
+          title: "<?php echo $_SESSION['status']?>",
+          text: "<?php echo $_SESSION['message']?>",
+          icon: "<?php echo $_SESSION['status-code']?>",
+          button: "OK!",
+        });
+        </script>
+        <?php
                           $_SESSION = array();
                           session_unset();
                           session_destroy();
                             }
                           ?>
-                  <div class="button">
-                  <input type="submit" name="submit" value="REGISTER">
-                  </div>
-              </form>
-            </div>
-          </div>
-</section>
-<script>
+        <div class="button">
+          <input type="submit" name="submit" value="REGISTER">
+        </div>
+      </form>
+    </div>
+    </div>
+  </section>
+  <script>
   let sidebar = document.querySelector(".sidebar");
   let closeBtn = document.querySelector("#btn");
   let searchBtn = document.querySelector(".bx-search");
 
-  closeBtn.addEventListener("click", ()=>{
+  closeBtn.addEventListener("click", () => {
     sidebar.classList.toggle("open");
-    menuBtnChange();//calling the function(optional)
+    menuBtnChange(); //calling the function(optional)
   });
 
-  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+  searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
     sidebar.classList.toggle("open");
     menuBtnChange(); //calling the function(optional)
   });
 
   // following are the code to change sidebar button(optional)
   function menuBtnChange() {
-   if(sidebar.classList.contains("open")){
-     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the icons class
-   }else {
-     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the icons class
-   }
+    if (sidebar.classList.contains("open")) {
+      closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the icons class
+    } else {
+      closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the icons class
+    }
   }
-</script>
+  </script>
 </body>
+
 </html>

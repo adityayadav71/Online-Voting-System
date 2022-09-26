@@ -22,8 +22,7 @@ $result = $mysqli->query($sql);
 
 <body>
   <header style="position:relative;">
-    <a class="logo" href="/Online-Voting-System-main"><img src="images/image1.png" style="height:36px; width:197px"
-        alt="logo"></a>
+    <a class="logo" href="/"><img src="images/image1.png" style="height:36px; width:197px" alt="logo"></a>
     <nav>
       <ul class="nav__links">
         <li><a href="./AdminLogin.php">Admin</a></li>
