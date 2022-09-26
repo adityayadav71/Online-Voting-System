@@ -20,27 +20,33 @@ if(isset($_POST['submit'])){
   if(!empty($candidatename) || !empty($Email) || !empty($Party) || !empty($Slogan) || !empty($DOB) ||!empty($Contact)){
     $result = $mysqli->query("SELECT * FROM canpersonal where email='".$Email."'");
     if ($result->num_rows == 0) {
-            $sql1 = $mysqli->query("INSERT INTO canpersonal(Name,Image,Email,Party,Slogan,DOB,Age,Contact)  values('$candidatename', '$folder', '$Email', '$Party', '$Slogan', '$DOB', '$age', '$contact')");
-            $sql2= $mysqli->query("INSERT INTO candidatedetails(Name,Image,Age,Party,Slogan,Votes) values('$candidatename','$folder','$age','$Party','$Slogan',0)");
-                  if ($sql1) {
-                      $_SESSION['status'] = "ADDED";
-                      $_SESSION['message'] = "New record inserted sucessfully";
-                      $_SESSION['status-code'] = "success";
-                  }else{ 
-                      $_SESSION['status'] = "ERROR!";
-                      $_SESSION['message'] = "Record insertion unsuccessful";
-                      $_SESSION['status-code'] = "error";
-                  }
-        }else {
-              $_SESSION['status'] = "ERROR!";
-              $_SESSION['message'] = "Someone already registered using this E-mail!";
-              $_SESSION['status-code'] = "error";
-            }
+      if($age >= 25) {
+        $sql1 = $mysqli->query("INSERT INTO canpersonal(Name,Image,Email,Party,Slogan,DOB,Age,Contact)  values('$candidatename', '$folder', '$Email', '$Party', '$Slogan', '$DOB', '$age', '$contact')");
+        $sql2= $mysqli->query("INSERT INTO candidatedetails(Name,Image,Age,Party,Slogan,Votes) values('$candidatename','$folder','$age','$Party','$Slogan',0)");
+        if ($sql1) {
+          $_SESSION['status'] = "ADDED";
+          $_SESSION['message'] = "New record inserted sucessfully";
+          $_SESSION['status-code'] = "success";
+        }else{ 
+          $_SESSION['status'] = "ERROR!";
+          $_SESSION['message'] = "Record insertion unsuccessful";
+          $_SESSION['status-code'] = "error";
+        }
+      } else {
+          $_SESSION['status'] = "ERROR!";
+          $_SESSION['message'] = "Age should be greater than 25";
+          $_SESSION['status-code'] = "error";
+      }
+    }else {
+        $_SESSION['status'] = "ERROR!";
+        $_SESSION['message'] = "Someone already registered using this E-mail!";
+        $_SESSION['status-code'] = "error";
+    }
   }else{
         $_SESSION['status'] = "ERROR!";
         $_SESSION['message'] = "All fields are required";
         $_SESSION['status-code'] = "error";
-      }
+  }
 }
 $mysqli->close(); 
 ?>
