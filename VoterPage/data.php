@@ -1,13 +1,12 @@
 <?php
 header('Content-Type: application/json');
-include '../db_connection.php';
+$conn = mysqli_connect("bkb5iqbtstxgnbrogewy-mysql.services.clever-cloud.com","u3itneofpmip2tjl", "qxTyJHINMYThkxRnNs7v", "bkb5iqbtstxgnbrogewy");
 $sqlQuery = "SELECT Party, SUM(Votes) as TotalVotes FROM candidatedetails GROUP BY Party;";
-$exec =  $mysqli->query($sqlQuery);
-$result = $exec->fetch_assoc();
+$result = mysqli_query($conn,$sqlQuery);
 $data = array();
 foreach ($result as $row) {
 	$data[] = $row;
 }
-$mysqli->close(); 
+mysqli_close($conn);
 echo json_encode($data);
 ?>

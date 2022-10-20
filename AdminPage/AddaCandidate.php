@@ -14,7 +14,7 @@ $age = $diff->format("%y");
 $contact = $_POST['Contact']; 
 $filename = $_FILES['image']['name'];
 $tmpname = $_FILES['image']['tmp_name'];
-$folder = "../images/CandidateImages/".$filename;
+$folder = "images/CandidateImages/".$filename;
 move_uploaded_file($tmpname,$folder);
 if(isset($_POST['submit'])){
   if(!empty($candidatename) || !empty($Email) || !empty($Party) || !empty($Slogan) || !empty($DOB) ||!empty($Contact)){
