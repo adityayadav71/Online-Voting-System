@@ -9,4 +9,4 @@ To run locally:
 
 ## Deployment
 
-[Heroku Link](https://voter-portal-ovs.herokuapp.com/)
+[Click here to see the live version of the website](http://18.183.209.21:8000/Online-Voting-System/)
